@@ -1,5 +1,6 @@
 const { validationResult } = require('express-validator');
 let userModel = require('../models/userModels');
+let fs = require('fs');
 
 const UserController = {
   registro: (req, res) => {
@@ -14,6 +15,9 @@ const UserController = {
 
   //Guardar usuario que es objeto literal en formato JSON (un string que puede ser escrito por ser texto)
   let usuarioJSON = JSON.stringify(usuario);
+
+  //Escribir usuariosJSON en el archivo usuarios.json
+  fs.writeFileSync('usuarios.json', usuarioJSON);
 },
 };
 
