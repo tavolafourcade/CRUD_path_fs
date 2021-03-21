@@ -46,11 +46,19 @@ let UserController = {
       email: req.body.email
     }
 
+    //GUARDAR UN USUARIO
     //Guardar usuario que es objeto literal en formato JSON (un string que puede ser escrito por ser texto)
-    let usuarioJSON = JSON.stringify(usuario);
+    //let usuarioJSON = JSON.stringify(usuario);
 
     //Escribir usuariosJSON en el archivo usuarios.json
-    fs.writeFileSync('usuarios.json', usuarioJSON);
+    //fs.writeFileSync('usuarios.json', usuarioJSON);
+
+    //1ro. Leer que cosas ya habia (no quiero sobre escribir usuarios registrados)
+    let archivoUsuario = fs.readFileSync('usuario.json', {encoding: utf-8});
+    //Ahora este archivo tiene una extension .json
+
+    //2do. Para leer la informacion usamos JSON.parse para descomprimir la informacion
+    let usuarios = JSON.parse(archivoUsuario);
   }
 };
 
