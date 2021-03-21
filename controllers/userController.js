@@ -70,6 +70,11 @@ let UserController = {
     //Ahora agregamos al array de usuarios el usuario nuevo
     usuarios.push(usuario);
     
+    //Volviendo a transformar en JSON
+    usuariosJSON = JSON.stringify(usuarios);
+
+    //Escribir usuarioJSON en el archivo usuarios.json
+    fs.writeFileSync('usuarios.json', usuariosJSON);
   }
 };
 
