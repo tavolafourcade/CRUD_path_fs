@@ -11,12 +11,22 @@ let UserController = {
     res.render('login');
   },
   'list': (req, res) => {
-    let users = [
-      {id: 1, name: 'Dario'},
-      {id: 2, name: 'Javier'},
-      {id: 3, name: 'Maru'},
-      {id: 4, name: 'Octavio'},
-    ];
+    // let users = [
+    //   {id: 1, name: 'Dario'},
+    //   {id: 2, name: 'Javier'},
+    //   {id: 3, name: 'Maru'},
+    //   {id: 4, name: 'Octavio'},
+    // ];
+
+    //En vez de sacar a los usuarios de un array escrito a mano, queremos que lo saque del archivo
+
+    //1. Leyendo el archivo
+    let archivoJSON = fs.readFileSync("usuarios.json", {encoding: utf-8});
+    //Ahora tenemos un archivo JSON que requiere parsear
+
+    //2. Descomprimiendo un archivo JSON
+    let users = JSON.parse(archivoJSON);
+    
     res.render('userList', {'users': users})
   },
   'search': (req, res) => {
