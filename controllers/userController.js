@@ -66,6 +66,9 @@ let UserController = {
       //2do. Para leer la informacion usamos JSON.parse para descomprimir la informacion
       let usuarios = JSON.parse(archivoUsuario);
     }
+
+    //Ahora agregamos al array de usuarios el usuario nuevo
+    usuarios.push(usuario);
     
   }
 };
