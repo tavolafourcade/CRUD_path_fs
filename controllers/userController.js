@@ -57,14 +57,16 @@ let UserController = {
     let archivoUsuario = fs.readFileSync('usuario.json', {encoding: utf-8});
     //Ahora este archivo tiene una extension .json
 
+    //Definiendo la variable usuarios ante del condicional
+    let usuarios;
     //Validacion del array usuarios inicial por si es vacío
     if(archivoUsuario == ""){
-      let usuarios = [];
+      usuarios = [];
     }else{
       
       //Si hay contenido en usuarios lo descomprimimos para obtener el array de usuarios.
       //2do. Para leer la informacion usamos JSON.parse para descomprimir la informacion
-      let usuarios = JSON.parse(archivoUsuario);
+      usuarios = JSON.parse(archivoUsuario);
     }
 
     //Ahora agregamos al array de usuarios el usuario nuevo
